@@ -6,11 +6,11 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 get_filename_component(PARENT_DIR ${PROJECT_SOURCE_DIR} DIRECTORY)
 
-include(${PARENT_DIR}/conan/conanbuildinfo.cmake)
-conan_basic_setup()
+#include(${PARENT_DIR}/conan/conanbuildinfo.cmake)
+#conan_basic_setup()
 
 file(GLOB Game_SOURCES ${PARENT_DIR}/src/*.cpp)
-file(GLOB Game_HEADERS ${PARENT_DIR}/src/*.hpp)
+file(GLOB Game_HEADERS ${PARENT_DIR}/inc/*.hpp)
 
 set (Game_INCLUDE_DIRS "")
 foreach (_headerFile ${Game_HEADERS})
