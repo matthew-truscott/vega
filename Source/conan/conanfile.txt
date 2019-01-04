@@ -1,0 +1,7 @@
+[requires]
+jsonformoderncpp/3.4.0@vthiery/stable
+
+[generators]
+cmake
+gcc
+ycm

@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/home/matthew/projects/text-adventure",
+  "command": "/usr/bin/c++   -I/home/matthew/.conan/data/jsonformoderncpp/3.4.0/vthiery/stable/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include -I/home/matthew/projects/text-adventure/src     -O3 -DNDEBUG    -std=c++11 -o CMakeFiles/GameExe.dir/src/book.cpp.o -c /home/matthew/projects/text-adventure/src/book.cpp",
+  "file": "/home/matthew/projects/text-adventure/src/book.cpp"
+},
+{
+  "directory": "/home/matthew/projects/text-adventure",
+  "command": "/usr/bin/c++   -I/home/matthew/.conan/data/jsonformoderncpp/3.4.0/vthiery/stable/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include -I/home/matthew/projects/text-adventure/src     -O3 -DNDEBUG    -std=c++11 -o CMakeFiles/GameExe.dir/src/main.cpp.o -c /home/matthew/projects/text-adventure/src/main.cpp",
+  "file": "/home/matthew/projects/text-adventure/src/main.cpp"
+},
+{
+  "directory": "/home/matthew/projects/text-adventure",
+  "command": "/usr/bin/c++   -I/home/matthew/.conan/data/jsonformoderncpp/3.4.0/vthiery/stable/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include -I/home/matthew/projects/text-adventure/src     -O3 -DNDEBUG    -std=c++11 -o CMakeFiles/GameExe.dir/src/narrator.cpp.o -c /home/matthew/projects/text-adventure/src/narrator.cpp",
+  "file": "/home/matthew/projects/text-adventure/src/narrator.cpp"
+}
+]
