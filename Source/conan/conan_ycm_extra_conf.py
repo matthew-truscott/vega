@@ -160,6 +160,6 @@ def FlagsForFile( filename, **kwargs ):
   _logger.info("Final flags for %s are %s" % (filename, ' '.join(final_flags)))
 
   return {
-    'flags': final_flags + ["-I/usr/include", "-I/usr/include/c++/7"],
+    'flags': final_flags + ["-I/usr/include", "-I/usr/include/c++/15"],
     'do_cache': True
   }

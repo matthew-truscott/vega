@@ -1,8 +1,8 @@
 [includedirs]
-/home/matthew/.conan/data/jsonformoderncpp/3.4.0/vthiery/stable/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include
+C:/Users/mat0330/.conan/data/jsonformoderncpp/3.4.0/vthiery/stable/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include
 
 [libdirs]
-/home/matthew/.conan/data/jsonformoderncpp/3.4.0/vthiery/stable/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/lib
+C:/Users/mat0330/.conan/data/jsonformoderncpp/3.4.0/vthiery/stable/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/lib
 
 [bindirs]
 
@@ -11,7 +11,7 @@
 
 
 [builddirs]
-/home/matthew/.conan/data/jsonformoderncpp/3.4.0/vthiery/stable/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/
+C:/Users/mat0330/.conan/data/jsonformoderncpp/3.4.0/vthiery/stable/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/
 
 [libs]
 
@@ -36,10 +36,10 @@
 
 
 [includedirs_jsonformoderncpp]
-/home/matthew/.conan/data/jsonformoderncpp/3.4.0/vthiery/stable/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include
+C:/Users/mat0330/.conan/data/jsonformoderncpp/3.4.0/vthiery/stable/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/include
 
 [libdirs_jsonformoderncpp]
-/home/matthew/.conan/data/jsonformoderncpp/3.4.0/vthiery/stable/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/lib
+C:/Users/mat0330/.conan/data/jsonformoderncpp/3.4.0/vthiery/stable/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/lib
 
 [bindirs_jsonformoderncpp]
 
@@ -48,7 +48,7 @@
 
 
 [builddirs_jsonformoderncpp]
-/home/matthew/.conan/data/jsonformoderncpp/3.4.0/vthiery/stable/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/
+C:/Users/mat0330/.conan/data/jsonformoderncpp/3.4.0/vthiery/stable/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9/
 
 [libs_jsonformoderncpp]
 
@@ -72,7 +72,7 @@
 
 
 [rootpath_jsonformoderncpp]
-/home/matthew/.conan/data/jsonformoderncpp/3.4.0/vthiery/stable/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9
+C:/Users/mat0330/.conan/data/jsonformoderncpp/3.4.0/vthiery/stable/package/5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9
 
 
 [USER_jsonformoderncpp]
