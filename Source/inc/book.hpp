@@ -3,24 +3,32 @@
 #include <string>
 #include <nlohmann/json.hpp>
 
+#include "project.hpp"
+
+using json = nlohmann::json;
+
 namespace text {
 
 struct Page
 {
-    int page_number;
-    std::string content;
+    Page() : sPageNumber(-1), sLabel(""), sContent("") {}
+    int sPageNumber;
+    std::string sLabel;
+    std::string sContent;
 };
 
 class Book 
 {
-    int book_length;
-    Page* page;
+    int mBookLength;
+    Page* mPage;
+    project::Global* mG;
     
   public:
-    Book();
+    Book(project::Global* g);
     ~Book();
 
-    void read_page(int page_number);
+    void read_page(int pageNumber);
+    void print_page();
 };
 
 } // namespace text

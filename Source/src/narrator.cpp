@@ -3,10 +3,12 @@
 
 using namespace text;
 
-Narrator::Narrator()
+Narrator::Narrator(project::Global* g)
 {
-    std::cout << "Narrator Constructor\n";
-    check_input = false;
+    mG = g;
+    if (mG->gVerbose > 0) std::cout << "Narrator Constructor\n";
+    mCheckInput = false;
+    mBook = new Book(g);
 }
 
 Narrator::~Narrator()
@@ -16,5 +18,5 @@ Narrator::~Narrator()
 
 void Narrator::print_book()
 {
-    book.read_page(1);
+    mBook->read_page(0);
 }

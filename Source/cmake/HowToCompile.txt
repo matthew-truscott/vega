@@ -1,0 +1,4 @@
+Hi if you're not sure how to compile, just run
+
+cmake --build .
+

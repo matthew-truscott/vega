@@ -3,16 +3,18 @@
 #include <string>
 
 #include "book.hpp"
+#include "project.hpp"
 
 namespace text {
 
 class Narrator 
 {
-    bool check_input;
-    Book book;
+    bool mCheckInput;
+    Book* mBook = nullptr;
+    project::Global* mG;
     
   public:
-    Narrator();
+    Narrator(project::Global* g);
     ~Narrator();
 
     void print_book();
