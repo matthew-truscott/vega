@@ -19,7 +19,7 @@ foreach (_headerFile ${Game_HEADERS})
 endforeach()
 list(REMOVE_DUPLICATES Game_INCLUDE_DIRS)
 
-set(EXECUTABLE_OUTPUT_PATH ${PARENT_DIR}/bin)
+set(EXECUTABLE_OUTPUT_PATH ${PARENT_DIR}/bin/debug)
 
 add_executable (GameExe ${Game_SOURCES})
 target_include_directories(GameExe PRIVATE ${Game_INCLUDE_DIRS})
