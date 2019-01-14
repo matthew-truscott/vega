@@ -2,3 +2,6 @@ Hi if you're not sure how to compile, just run
 
 cmake --build .
 
+If you're adding things run this before building
+
+cmake .

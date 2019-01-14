@@ -11,6 +11,9 @@ Global::Global(int verbose)
 {
     std::cout << "Global Constructor\n";
     json_dir = "dat";
+    setting_delimiter_open = "[";
+    setting_delimiter_close = "]";
+    setting_delimiter_sep = "|";
     gVerbose = verbose;
     std::cout << "Verbosity set to " + std::to_string(gVerbose) + "\n";
 }

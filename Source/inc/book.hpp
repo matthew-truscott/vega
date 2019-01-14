@@ -4,6 +4,7 @@
 #include <nlohmann/json.hpp>
 
 #include "project.hpp"
+#include "state.hpp"
 
 using json = nlohmann::json;
 
@@ -15,6 +16,9 @@ struct Page
     int sPageNumber;
     std::string sLabel;
     std::string sContent;
+    std::vector<std::string> sVecParam;
+    std::vector<std::string> sVecFunc;
+    std::vector<utils::State*> sVecState;
 };
 
 class Book 
