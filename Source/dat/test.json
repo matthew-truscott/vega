@@ -6,7 +6,7 @@
         "Functions": ["move", "check_status", "sleep", "look"],
         "Settings": ["start[1|0]"],
         "Cases": {
-            "s0=true": "(1)You move towards the exit."
+            "start=1": "(1)You move towards the exit."
         }
     }
 }
