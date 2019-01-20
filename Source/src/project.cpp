@@ -14,6 +14,9 @@ Global::Global(int verbose)
     setting_delimiter_open = "[";
     setting_delimiter_close = "]";
     setting_delimiter_sep = "|";
+    case_delimiter_cond = "@";
+    case_goto_open = "(";
+    case_goto_close = ")";
     gVerbose = verbose;
     std::cout << "Verbosity set to " + std::to_string(gVerbose) + "\n";
 }

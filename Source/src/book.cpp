@@ -146,12 +146,14 @@ void Book::read_page(int pageNumber)
              ++i)
         {
             size_t tPosOpen = i->find(mG->setting_delimiter_open);
-            size_t tPosClose = i->find(mG->setting_delimiter_close)-1;
+            size_t tPosClose = i->find(mG->setting_delimiter_close);
             size_t tLenOpen = mG->setting_delimiter_open.length();
             size_t tLenClose = mG->setting_delimiter_close.length();
 
             std::string tLabel = i->substr(0, tPosOpen);
-            std::string tOpts = i->substr(tPosOpen+tLenOpen, tPosClose-tPosOpen);
+            std::string tOpts = i->substr(tPosOpen+tLenOpen, 
+                tPosClose-(tPosOpen+tLenOpen));
+
             std::vector<std::string> tVecOpt;
 
             size_t last = 0;
@@ -184,13 +186,13 @@ void Book::read_page(int pageNumber)
     }
 
     // read cases
-    
+    std::map<std::string, std::string> tMapCase = tJson[strPageNumber]["Cases"]
+            .get<std::map<std::string, std::string>>();
 
+    mPage->sCase = new utils::Case(mG, mPage->sVecState, &tMapCase);
 
-
-
-    
-    
+    // page read complete!
+    if (mG->gVerbose > 0) std::cout << "\nPage Reading Complete!\n\n"; 
 
 
 }
@@ -203,5 +205,5 @@ void Book::print_page()
         return;
     }
 
-    std::cout << "Label: " + mPage->sLabel;
+    std::cout << mPage->sContent << "\n";
 }

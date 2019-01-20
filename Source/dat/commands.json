@@ -1,0 +1,38 @@
+{
+    "look through": "search",
+    "inspect": "search",
+    "search": "search",
+    "look at": "search",
+    "look": "search",
+
+    "turn around": "leave",
+    "stop": "leave",
+    "go back": "leave",
+    "leave": "leave",
+    "run away": "leave",
+    "flee": "leave",
+
+    "attack": "attack",
+    "kick": "attack",
+    "punch": "attack",
+    "charge": "attack",
+
+    "move": "move",
+    "approach": "move",
+    "go to": "move",
+    "walk": "move",
+    "run to": "move",
+    "get up": "move",
+    "jump": "move",
+
+    "sleep": "sleep",
+    "rest": "sleep",
+
+    "status": "status",
+    "check status": "status",
+    "wiggle": "status",
+    "check self": "status",
+    "health": "status",
+
+    "help": "help"
+}
