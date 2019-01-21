@@ -21,4 +21,4 @@ class State
     std::string list_states();
 };
 
-} // namespace text
+} // namespace utils

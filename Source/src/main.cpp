@@ -9,30 +9,25 @@ int main()
     project::Global g = project::Global(1);
 
     text::Narrator narrator = text::Narrator(&g);
-    text::Commander commander = text::Commander(&g);
 
     narrator.load();
 
     std::string commandInput; 
-    std::string functionInput;
-    std::vector<std::string> paramInput;
-
-    if (g.gVerbose > 0)
-    {
-        commander.printFunctions();
-        commander.printParameters();
-    }
+    int status = 0;
     
     while (commandInput != "q")
     {
         commandInput.clear();
 
-        narrator.next();
+        status = narrator.next();
 
-        getline(std::cin, commandInput);        
+        if (status < 0) break;
 
-        functionInput = commander.getFunction(commandInput);
+        getline(std::cin, commandInput);  
 
-        paramInput = commander.getParameters(commandInput);
+        narrator.process(commandInput);
     }
+
+    std::cout << "GAME OVER\n";
+    getline(std::cin, commandInput);
 }

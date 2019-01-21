@@ -1,14 +1,15 @@
-#include "book.hpp"
 #include <iostream>
 #include <fstream>
 
-#include "state.hpp"
+#include "book.hpp"
 
 using namespace text;
 
-Book::Book(project::Global* g)
+Book::Book(project::Global* g, utils::Fun* f, entity::Actor* p)
 {
     mG = g;
+    mF = f;
+    mProtagonist = p;
     if (mG->gVerbose > 0) std::cout << "Book Constructor\n";
     mPage = nullptr;
 }
@@ -206,4 +207,59 @@ void Book::print_page()
     }
 
     std::cout << mPage->sContent << "\n";
+}
+
+int Book::check_input(std::string functionInput, std::vector<std::string> paramInput)
+{
+    // reset stuff
+    mFunc.clear();
+    mVecParam.clear();
+
+    // exact pattern match against the vector of functions
+    for (auto iter = mPage->sVecFunc.begin(); iter != mPage->sVecFunc.end(); ++iter)
+    {
+        if (iter->compare(functionInput) == 0)
+        {       
+            mFunc = *iter;
+            break;
+        }
+    }
+
+    // exact pattern match against the vector of parameters
+    for (auto iter = mPage->sVecParam.begin(); iter != mPage->sVecParam.end(); ++iter)
+    {
+        for (auto jter = paramInput.begin(); jter != paramInput.end(); ++jter)
+        {
+            if (iter->compare(*jter) == 0)
+            {
+                mVecParam.push_back(*iter);
+                break;
+            }
+        }
+    }
+
+    // execute function if valid
+    if (mFunc.empty())
+    {
+        if (mG->gVerbose > 0) std::cout << "Function not in instance.\n";
+        return 1;
+    }
+    else
+    {
+        // check parameters required in function
+        int nArgs = mF->GetNumArg(mFunc);
+        if (mG->gVerbose > 0) 
+        {
+            std::cout << "Function " << mFunc << " narg=" << nArgs << "\n";
+        }
+
+        if (nArgs == 0)
+        {
+            // execute function, no input parameters required
+            mF->ExecFunction(mFunc, &mVecParam, mPage, mProtagonist);
+        }
+    }
+
+
+    return 0;
 }

@@ -3,8 +3,8 @@
         "Label": "spawn",
         "Text": "You wake up on the floor with a slight pain throughout your body. Your vision is blurred, but you can move. The floor is cold.",
         "Parameters": ["exit"],
-        "Functions": ["move", "check_status", "sleep", "look"],
-        "Settings": ["start[0|1]"],
+        "Functions": ["move", "status", "sleep", "search"],
+        "Settings": ["start[0|1]", "safe[0]"],
         "Cases": {
             "@1": "(1)You move towards the exit."
         }
