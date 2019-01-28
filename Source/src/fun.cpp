@@ -3,25 +3,20 @@
 #include <utility>
 #include <iostream>
 
+#define CALL_MEMBER_FN(object,ptrToMember)  ((object).*(ptrToMember))
+
 using namespace utils;
 
 Fun::Fun()
 {
-    mMapArgs["search"] = 1;
-    mMapArgs["leave"] = 0;
-    mMapArgs["attack"] = 1;
-    mMapArgs["move"] = 1;
-    mMapArgs["sleep"] = 0;
-    mMapArgs["status"] = 0;
-    mMapArgs["help"] = 0;
-
-    mMapFun["search"] = FunName::SEARCH;
-    mMapFun["leave"] = FunName::LEAVE;
-    mMapFun["attack"] = FunName::ATTACK;
-    mMapFun["move"] = FunName::MOVE;
-    mMapFun["sleep"] = FunName::SLEEP;
-    mMapFun["status"] = FunName::STATUS;
-    mMapFun["help"] = FunName::HELP;
+	//						std::make_pair(&func_name, args count);
+    mMapFun["search"] =		std::make_pair(&Search, 1);
+    mMapFun["leave"] =		std::make_pair(&Leave, 0);
+    mMapFun["attack"] =		std::make_pair(&Attack, 1);
+    mMapFun["move"] =		std::make_pair(&Move, 1);
+    mMapFun["sleep"] =		std::make_pair(&Sleep, 0);
+    mMapFun["status"] =		std::make_pair(&Status, 0);
+    mMapFun["help"] =		std::make_pair(&Help, 0);
 }
 
 Fun::~Fun()
@@ -29,29 +24,34 @@ Fun::~Fun()
 
 }
 
-void Fun::Search()
+void Fun::Search(std::vector<std::string> params, Page* page,
+    entity::Actor* player)
 {
-    std::cout << "Search\n";
+    std::cout << "Called Fun::Search, params_size=" << params.size() << std::endl;
 }
 
-void Fun::Leave()
+void Fun::Leave(std::vector<std::string> params, Page* page,
+    entity::Actor* player)
 {
-    std::cout << "Leave\n";
+    std::cout << "Called Fun::Leave, params_size=" << params.size() << std::endl;
 }
 
-void Fun::Attack()
+void Fun::Attack(std::vector<std::string> params, Page* page,
+    entity::Actor* player)
 {
-    std::cout << "Attack\n";
+    std::cout << "Called Fun::Attack, params_size=" << params.size() << std::endl;
 }
 
-void Fun::Move()
+void Fun::Move(std::vector<std::string> params, Page* page,
+    entity::Actor* player)
 {
-    std::cout << "Move\n";
+    std::cout << "Called Fun::Move, params_size=" << params.size() << std::endl;
 }
 
-void Fun::Sleep(Page* page, entity::Actor* player)
+
+void Fun::Sleep(std::vector<std::string> params, Page* page, entity::Actor* player)
 {
-    std::cout << "Sleep...\n";
+    std::cout << "Called Fun::Sleep, params_size=" << params.size() << std::endl;
     // get relevant state
     for (auto iter = page->sVecState.begin(); iter != page->sVecState.end(); ++iter)
     {
@@ -75,55 +75,37 @@ void Fun::Sleep(Page* page, entity::Actor* player)
     return;
 }
 
-void Fun::Status()
+
+void Fun::Status(std::vector<std::string> params, Page* page,
+    entity::Actor* player)
 {
-    std::cout << "Status\n";
+    std::cout << "Called Fun::Status, params_size=" << params.size() << std::endl;
 }
 
-void Fun::Help()
+void Fun::Help(std::vector<std::string> params, Page* page,
+    entity::Actor* player)
 {
-    std::cout << "Help\n";
+    std::cout << "Called Fun::Help, params_size=" << params.size() << std::endl;
 }
 
 
 
-int Fun::GetNumArg(std::string name)
+unsigned int Fun::GetNumArg(std::string name)
 {
-    return mMapArgs[name];
+    return mMapFun[name].second;
 }
 
 void Fun::ExecFunction(std::string name, std::vector<std::string>* params, Page* page,
     entity::Actor* player)
 {
-    // for now use case statement... (look into closures/functors/lambdas)
-    // TODO: Do something nicer here
-
-    switch(mMapFun[name]) 
-    {
-        case FunName::SEARCH:
-            Search();
-            break;
-        case FunName::LEAVE:
-            Leave();
-            break;
-        case FunName::ATTACK:
-            Attack();
-            break;
-        case FunName::MOVE:
-            Move();
-            break;
-        case FunName::SLEEP:
-            Sleep(page, player);
-            break;
-        case FunName::STATUS:
-            Status();
-            break;
-        case FunName::HELP:
-            Help();
-            break;
-        default:
-            break;
-    }
-
+	//Trying to find function name in the map, if found -- call,
+	//if not -- do nothing.
+	
+    std::map<std::string, std::pair<FunFuncPointer, unsigned int>>::iterator it = mMapFun.find(name);
+    
+    if(it != mMapFun.end())
+    	CALL_MEMBER_FN(*this, ( mMapFun[name].first ))( *params, page, player );//This is a macro defined at the top of this file.
+    	
+    
     return;
 }
