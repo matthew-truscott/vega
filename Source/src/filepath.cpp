@@ -10,6 +10,8 @@ namespace filepath{
 		return "commands.json";
 	}
 	
-	//Didn't find where items.json is loaded.
+	std::string getItemsFile(){
+		return "items.json";
+	}
 	
 }

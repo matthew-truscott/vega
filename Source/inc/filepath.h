@@ -9,7 +9,7 @@ namespace filepath{
 	
 	std::string getCommandsFile();
 	
-	//Didn't find where items.json is loaded.
+	std::string getItemsFile();
 	
 }
 

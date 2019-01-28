@@ -12,7 +12,7 @@ Commander::Commander(project::Global* g)
     mG = g;
 
     // read in JSON file (see nlohmann library)
-    std::string filePath = "../../" + mG->json_dir + "/" + filepath::getCommandsFile(); // fix this to a dynamic name
+    std::string filePath = "../../" + mG->json_dir + "/" + filepath::getCommandsFile();
 
     json tJson;
 
@@ -29,7 +29,7 @@ Commander::Commander(project::Global* g)
     mMapCmd = tJson.get<std::map<std::string, std::string>>();
 
     // read in JSON file (see iteration access) for parameter map
-    filePath = "../../" + mG->json_dir + "/" + "items.json"; // fix this to a dynamic name
+    filePath = "../../" + mG->json_dir + "/" + filepath::getItemsFile();
 
     tJson.clear();
 
