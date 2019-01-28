@@ -3,6 +3,7 @@
 #include <algorithm>
 
 #include "commander.hpp"
+#include "filepath.h"
 
 using namespace text;
 
@@ -11,7 +12,7 @@ Commander::Commander(project::Global* g)
     mG = g;
 
     // read in JSON file (see nlohmann library)
-    std::string filePath = "../../" + mG->json_dir + "/" + "commands.json"; // fix this to a dynamic name
+    std::string filePath = "../../" + mG->json_dir + "/" + filepath::getCommandsFile(); // fix this to a dynamic name
 
     json tJson;
 

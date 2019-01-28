@@ -2,6 +2,7 @@
 #include <fstream>
 
 #include "book.hpp"
+#include "filepath.h"
 
 using namespace text;
 
@@ -25,7 +26,7 @@ void Book::read_page(int pageNumber)
     if (mG->gVerbose > 0) std::cout << "Calling Book::read_page\n";
 
     // read in JSON file (see nlohmann library)
-    std::string filePath = "../../" + mG->json_dir + "/" + "test.json"; // fix this to a dynamic name
+    std::string filePath = "../../" + mG->json_dir + "/" + filepath::getBookFile(); // fix this to a dynamic name
 
     if (mG->gVerbose > 0) std::cout << "filepath is " + filePath + "\n";
 
