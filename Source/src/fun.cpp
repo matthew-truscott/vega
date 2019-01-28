@@ -3,6 +3,7 @@
 #include <utility>
 #include <iostream>
 
+//Used for.. calling member function of an object by function pointer.
 #define CALL_MEMBER_FN(object,ptrToMember)  ((object).*(ptrToMember))
 
 using namespace utils;
@@ -104,7 +105,7 @@ void Fun::ExecFunction(std::string name, std::vector<std::string>* params, Page*
     std::map<std::string, std::pair<FunFuncPointer, unsigned int>>::iterator it = mMapFun.find(name);
     
     if(it != mMapFun.end())
-    	CALL_MEMBER_FN(*this, ( mMapFun[name].first ))( *params, page, player );//This is a macro defined at the top of this file.
+    	CALL_MEMBER_FN( *this, ( mMapFun[name].first ) )( *params, page, player );//This is a macro defined at the top of this file.
     	
     
     return;
